@@ -1,28 +1,26 @@
 import {
-  BriefcaseBusiness,
   Building,
   CircleDollarSign,
   Headset,
   Home,
   LogIn,
   LogOut,
-  Search,
   Settings,
   User,
   X,
 } from "lucide-react";
-import React, { act, Fragment } from "react";
+import React, { Fragment } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
 
 type MobileNavigationProps = {
   isMobileNavigationOpen: boolean;
   setIsMobileNavigationOpen: React.Dispatch<React.SetStateAction<boolean>>;
   mobileNavigationRef: React.RefObject<HTMLDivElement>;
-  handleClickOutSide: (e: any) => void;
-  activeNavLink: string;
-  setActiveNavLink: React.Dispatch<React.SetStateAction<string>>;
+  handleClickOutSide: (
+    e: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent
+  ) => void;
 };
 
 const MobileNavigation: React.FC<MobileNavigationProps> = ({
@@ -30,8 +28,6 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
   setIsMobileNavigationOpen,
   mobileNavigationRef,
   handleClickOutSide,
-  activeNavLink,
-  setActiveNavLink,
 }) => {
   const user = {
     name: "John Doe",
@@ -46,64 +42,48 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
       name: "Home",
       icon: Home,
       link: "/",
-      activeText: "home",
-      active: activeNavLink === "home",
       showNavLink: true,
     },
     {
       name: "Fid Jobs",
       icon: CircleDollarSign,
       link: "/jobs",
-      activeText: "jobs",
-      active: activeNavLink === "jobs",
       showNavLink: true,
     },
     {
       name: "Companies",
       icon: Building,
       link: "/companies",
-      activeText: "companies",
-      active: activeNavLink === "companies",
       showNavLink: true,
     },
     {
       name: "Candidates",
       icon: User,
       link: "/candidates",
-      activeText: "candidates",
-      active: activeNavLink === "candidates",
       showNavLink: true,
     },
     {
       name: "Pricing",
       icon: CircleDollarSign,
       link: "/pricing",
-      activeText: "pricing",
-      active: activeNavLink === "pricing",
       showNavLink: true,
     },
     {
       name: "Contact",
       icon: Headset,
       link: "/contact",
-      activeText: "contact",
-      active: activeNavLink === "contact",
       showNavLink: true,
     },
     {
       name: "Login as recruiter",
       icon: LogIn,
       link: "/login",
-      activeText: "login",
-      active: activeNavLink === "login",
       showNavLink: !user,
     },
     {
       name: "Login as candidate",
       icon: AiOutlineLogin,
       link: "/login",
-      activeText: "login",
-      active: activeNavLink === "login",
       showNavLink: !user,
     },
   ];
@@ -136,29 +116,26 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
             </div>
 
             {/* Navigation */}
-            <ul className="flex flex-col gap-2 mt-4">
+            <div className="flex flex-col gap-2 mt-4">
               {navLinks &&
                 navLinks.map((navLink) => (
                   <Fragment key={navLink.name}>
                     {navLink.showNavLink && (
-                      <li
-                        className={`${
-                          navLink.active ? "text-primary bg-base-300" : ""
-                        } transition-all duration-300 hover:text-primary hover:bg-base-300/80 w-full p-2 rounded-md`}
-                        onClick={() => setActiveNavLink(navLink.activeText)}
+                      <NavLink
+                        to={navLink.link}
+                        className={({ isActive }: { isActive: boolean }) =>
+                          `flex items-center gap-2 transition-all duration-300 hover:text-primary hover:bg-base-300/80 w-full p-2 rounded-md ${
+                            isActive ? "text-primary bg-base-300" : ""
+                          }`
+                        }
                       >
-                        <Link
-                          to={navLink.link}
-                          className="flex items-center gap-2"
-                        >
-                          <navLink.icon className="size-5" />
-                          {navLink.name}
-                        </Link>
-                      </li>
+                        <navLink.icon className="size-5" />
+                        {navLink.name}
+                      </NavLink>
                     )}
                   </Fragment>
                 ))}
-            </ul>
+            </div>
           </div>
           {user && (
             <div className="flex items-center gap-3 p-1 rounded-md bg-base-300">

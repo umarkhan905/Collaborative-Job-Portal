@@ -1,13 +1,18 @@
-import React from "react";
+import Footer from "./Footer/Footer";
+import Navbar from "./Navbar/Navbar";
 
-type ThemeProviderProps = {
+const ThemeProvider = ({
+  children,
+  className,
+}: {
   children: React.ReactNode;
-};
-
-const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  className?: string;
+}) => {
   return (
-    <div className="min-h-dvh w-dvw" data-theme="light">
+    <div className={className} data-theme="coffee">
+      <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };
