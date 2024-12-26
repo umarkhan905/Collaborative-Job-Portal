@@ -10,6 +10,9 @@ export default {
       screens: {
         xs: "480px",
       },
+      fontSize: {
+        "10px": "10px",
+      },
     },
   },
   plugins: [daisyui],
