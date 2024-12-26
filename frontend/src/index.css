@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply font-inter;
+@layer base {
+  * {
+    @apply font-inter;
+  }
+}
+
+@layer utilities {
+  .margin-bottom {
+    @apply mb-7 md:mb-10;
+  }
+  .heading-home {
+    @apply text-xl font-bold md:text-2xl;
+  }
 }

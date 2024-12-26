@@ -9,7 +9,7 @@ const ThemeProvider = ({
   className?: string;
 }) => {
   return (
-    <div className={className} data-theme="coffee">
+    <div className={className} data-theme="light">
       <Navbar />
       {children}
       <Footer />

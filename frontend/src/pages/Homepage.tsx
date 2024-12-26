@@ -1,24 +1,26 @@
-import Container from "../components/Container";
+import CompaniesContainer from "../components/Companies/CompaniesContainer";
+import Categories from "../components/Home/Categories";
 import CompanyLogos from "../components/Home/CompaniesLogos";
 import Hero from "../components/Home/Hero";
+import HeroSection from "../components/Home/HeroSection";
+import HowJobPilotWork from "../components/Home/HowJobPilotWork";
+import MostPopularVacancies from "../components/Home/MostPopularVacancies";
+import Testimonial from "../components/Home/Testimonial";
+import JobsContainer from "../components/Jobs/JobsContainer";
 
 const HomePage = () => {
   return (
     <>
-      <Hero />
-      <CompanyLogos />
-
-      <section className="w-full">
-        <Container className="p-3 my-4 bg-base-200">
-          <h1 className="text-lg font-bold text-center md:text-xl">
-            Browse by Category
-          </h1>
-          <p className="text-sm text-center">
-            Find the best companies to work for by category or industry and
-            apply to the job that suits you best.
-          </p>
-        </Container>
-      </section>
+      {/* <Hero /> */}
+      <HeroSection />
+      <MostPopularVacancies />
+      {/* <CompanyLogos /> */}
+      {/* <JobsContainer title="Recent Jobs" /> */}
+      <HowJobPilotWork />
+      <Categories />
+      <JobsContainer title="Featured Jobs" />
+      <CompaniesContainer />
+      <Testimonial />
     </>
   );
 };
