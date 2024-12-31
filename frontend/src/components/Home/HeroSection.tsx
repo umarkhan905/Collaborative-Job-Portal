@@ -6,6 +6,7 @@ import {
   UserRound,
 } from "lucide-react";
 import Container from "../Container";
+import HomeImage from "./HomeImage";
 
 const HeroSection = () => {
   return (
@@ -58,10 +59,16 @@ const HeroSection = () => {
 
           {/* Right Section */}
           <div className="flex items-center justify-center order-1 w-full md:w-1/2 md:order-2">
-            <img
+            {/* <img
               src="/images/hero.svg"
               alt="Hero Image"
               className="object-cover w-3/4"
+            /> */}
+            <HomeImage
+              color1="oklch(var(--nc))"
+              color2="oklch(var(--bc))"
+              color3="oklch(var(--p))"
+              className="object-cover w-full lg:w-3/4"
             />
           </div>
         </section>
