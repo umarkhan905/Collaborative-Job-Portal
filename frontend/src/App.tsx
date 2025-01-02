@@ -5,6 +5,7 @@ import Login from "../src/components/Auth/LogIn/LogIn.tsx";
 // import TermsandConditions from "./components/Auth/TermsandConditions/TermsandConditions.tsx";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword.tsx";
 import EmailVerification from "./components/Auth/EmailVerification/EmailVerification.tsx";
+import SingleJob from "./components/SingleJob/SingleJob.tsx";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         {/* <Route path="/TermsandConditions" element={<TermsandConditions />} /> */}
         <Route path="ForgotPassword" element={<ForgotPassword />} />
         <Route path="EmailVerification" element={<EmailVerification />} />
+        <Route path="SingleJob" element={<SingleJob />} />
       </Routes>
     </>
   );

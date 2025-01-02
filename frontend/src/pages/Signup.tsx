@@ -23,7 +23,7 @@ const Signup = () => {
     <div className=" justify-self-center  shadow border rounded border-gray-300 mt-2 h-full ">
       <div className="flex justify-center p-2 pb-3 ml-2 gap-10 ">
         <div className=" mt-6 lg:ml-10 xl:ml-0">
-          <h1 className="text-10px ml-1 font-medium ">Creat account.</h1>
+          <h1 className="text-2xl ml-1 font-medium ">Creat account.</h1>
           <span className="text-sm ml-1 text-gray-500">
             Already have account?
             <Link to="/LogIn" className="text-primary">
