@@ -8,6 +8,7 @@ import EmailVerification from "./components/Auth/EmailVerification/EmailVerifica
 import JobsPage from "./pages/JobsPage";
 import CompaniesPage from "./pages/CompaniesPage";
 import SingleJob from "./components/SingleJob/SingleJob.tsx";
+import CompanyDetailsPage from "./pages/CompanyDetailsPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/companies" element={<CompaniesPage />} />
         <Route path="SingleJob" element={<SingleJob />} />
+        <Route path="/companies/:id" element={<CompanyDetailsPage />} />
       </Routes>
     </>
   );
